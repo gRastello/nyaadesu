@@ -1,5 +1,5 @@
 /// Struct that represents a torrent and contains some of its basic information.
-#[derive(Debug)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Torrent {
     /// The category of the torrent.
     pub category: Category,
@@ -46,7 +46,7 @@ impl Torrent {
 
         None
     }
-    
+
     /// Extract magnet link as `String`.
     pub fn magnet_link(&self) -> Option<String> {
         let (first, second) = &self.links;
@@ -68,7 +68,7 @@ impl Torrent {
 }
 
 /// Enum that encodes a torrent's category.
-#[derive(Debug)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum Category {
     Anime(Anime),
     Audio(Audio),
@@ -79,7 +79,7 @@ pub enum Category {
 }
 
 /// Enum that encodes variants of anime torrents.
-#[derive(Debug)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum Anime {
     AnimeMusicVideo,
     EnglishTranslated,
@@ -88,14 +88,14 @@ pub enum Anime {
 }
 
 /// Enum that encodes variants of audio torrents.
-#[derive(Debug)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum Audio {
     Lossless,
     Lossy,
 }
 
 /// Enum that encodes variants of literature torrents.
-#[derive(Debug)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum Literature {
     EnglishTranslated,
     NonEnglishTranslated,
@@ -103,7 +103,7 @@ pub enum Literature {
 }
 
 /// Enum that encodes variants of live action torrents.
-#[derive(Debug)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum LiveAction {
     EnglishTranslated,
     IdolPromotionalVideo,
@@ -112,14 +112,14 @@ pub enum LiveAction {
 }
 
 /// Enum that encodes variants of pictures torrents.
-#[derive(Debug)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum Pictures {
     Graphics,
     Photos,
 }
 
 /// Enum that encodes variants of software torrents.
-#[derive(Debug)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum Software {
     Applications,
     Games,
